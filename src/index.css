@@ -1,13 +1,140 @@
+:root {
+  --bg-color-main: #20c5a0;
+  --bg-color-second: #FFFFFF;
+  --bg-color-third: #00101b;
+  --font-color-main: #000000;
+  --font-color-second: #FFFFFF;
+  --bg-color-header: #20c5a0;
+  --font-size-base: 16px;
+  --btn-color-main: #20c5a0;
+  --btn-color-hover: #FFFFFF;
+  --btn-color-disabled: #c3c3c3;
+}
+
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: var(--font-size-base);
+  color: var(--font-color-main);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+header {
+  top: 0vh;
+  position: sticky;
+  background-color: rgba(256, 256, 256, .9);
+  padding: 0 2rem 1rem 2rem;
+  min-height: 80px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+  font-size: calc(var(--font-size-base) * 1.6);
+  align-items: center;
+}
+
+nav > a {
+  color: var(--font-color-main);
+  text-decoration: none;
+  font-weight: 700;
+  transition: ease .3s;
+}
+
+nav > *:hover, nav > *:active {
+  color: var(--bg-color-main);
+  text-decoration: underline;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) .3s;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+footer {
+  position: sticky;
+  top: 100vh;
+  padding: 0 2rem;
+  background-color: var(--bg-color-main);
+  color: var(--font-color);
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+footer > * {
+  flex: 1 1 auto;
+  flex-basis: 50%;
+}
+
+h1 {
+  font-size: calc(var(--font-size-base) * 4);
+  color: #333;
+  margin: 0;
+}
+
+h2 {
+  font-size: calc(var(--font-size-base) * 2);
+  color: var(--bg-color-header);
+  margin: 2rem 0;
+  align-self: flex-start;
+}
+
+h3 {
+    font-size: calc(var(--font-size-base) * 1.5);
+}
+
+button {
+  background-color: var(--btn-color-main);
+  color: var(--font-color-main);
+  padding: .8rem 2rem;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 2px solid var(--bg-color-third);
+  font-size: calc(var(--font-size-base) * 1.4);
+  cursor: pointer;
+}
+
+button:hover, button:active {
+  background-color: #333;
+  color: white;
+  transition: ease .5s;
+}
+
+button:disabled, button:disabled:hover {
+  background-color: var(--btn-color-disabled);
+  opacity: .8;
+}
+
+input[type=text],
+input[type=password] {
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+label {
+  font-size: calc(var(--font-size-base) * 1.4);
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.main-letter {
+  color: var(--bg-color-main);
 }

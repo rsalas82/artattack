@@ -1,0 +1,8 @@
+.ArtworkList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
+    min-height: 100vh;
+    width: 100%;
+    gap: 1rem;
+    justify-content: space-evenly;
+}

@@ -1,0 +1,39 @@
+.Login {
+    padding: 2rem 4rem 4rem;
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-color-third);
+    color: var(--font-color-second);
+    border-radius: 5px;
+    max-width: 50%;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+
+.Login .error-msg {
+    background-color: rgba(237, 126, 80, .6);
+    text-align: center;
+    padding: .5rem;
+    width: 100%;
+    align-self: center;
+    border-radius: 5px;
+    border: 1px solid red;
+    margin-bottom: 1rem;
+}
+
+.Login form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    flex: 1 1 50%;
+}
+
+.Login form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.Login button {
+    margin: 0 auto;
+}

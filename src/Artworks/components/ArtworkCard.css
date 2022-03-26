@@ -1,0 +1,56 @@
+.Artwork {
+    background-color: #333333;
+    color: white;
+    border-radius: 5px;
+    transition: ease .5s;
+    cursor: pointer;
+}
+
+.Artwork:hover, .Artwork:active {
+    background-color: var(--bg-color-main);
+    color: var(--font-color-main);
+}
+
+
+.Artwork a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.Artwork a h3 {
+    justify-self: flex-start;
+    flex: 1 auto;
+    margin: 0 0 1rem 0;
+}
+
+
+.Artwork a img {
+    height: 80;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    object-position: 0% 30%;
+    flex: 4 auto;
+}
+
+.Artwork .info {
+    display: flex;
+}
+
+.Artwork .info p {
+    display: flex;
+    flex-direction: column;
+    flex: 3 auto;
+}
+
+.Artwork .info p strong {
+    margin-right: .5rem;
+    text-align: right;
+}
+
+.Artwork .info .heartIcon {
+    height: 25px;
+    width: 25px;
+}

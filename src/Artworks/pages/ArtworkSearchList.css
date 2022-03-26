@@ -1,0 +1,35 @@
+.ArtworkSearch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    margin: 0 2rem 2rem;
+}
+
+.ArtworkSearch h2 {
+    width: 100%;
+}
+
+.ArtworkSearch label {
+    display: none;
+}
+
+.ArtworkSearch input {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ArtworkSearch .searchForm {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+    width: 100%;
+    align-content: center;
+}
+
+.ArtworkSearch .searchForm .searchForm_fields {
+    display: flex;
+    flex: 3 auto;
+}
