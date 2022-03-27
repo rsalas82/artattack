@@ -3,7 +3,7 @@ import { adaptArtworksInfo } from "../adapters/artwork.adapter"
 import { getArtworks } from "../services/getArtworks.service"
 
 export const useInitiniteArtworks = (searchText) => {
-    const [artworks, setArtworks] = useState(null)
+    const [artworks, setArtworks] = useState([])
     const [loading, setLoading] = useState(true)
     const [offset, setOffset] = useState(0)
   
@@ -15,7 +15,7 @@ export const useInitiniteArtworks = (searchText) => {
     }
   
     useEffect(() => {
-      ;(async () => {
+      (async () => {
         setLoading(true)
         const artwork_response = await getArtworks(searchText, 0)
         setArtworks(adaptArtworksInfo(artwork_response.data))
@@ -25,7 +25,7 @@ export const useInitiniteArtworks = (searchText) => {
     useEffect(() => {
       setTimeout(() => {
         setLoading(false)
-      }, 1000)
+      }, 500)
     }, [artworks])
   
     return [artworks, moreArtworks, loading]

@@ -8,8 +8,8 @@ import Login from "./User/pages/Login";
 import {SearchContext} from './common/contexts/SearchContext'
 import {UserContext} from './common/contexts/UserContext'
 import MyFavArtworks from "./Artworks/pages/MyFavArtworks";
-import "./App.css"
 import { ARTWORKS_URL, ARTWORK_DETAIL_URL, MYFAVS_URL } from "./common/utilities/constants.utility";
+import "./App.css"
 
 function App() {
     const [searchText, setSearchText] = useState("")

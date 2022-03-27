@@ -16,11 +16,10 @@ const ArtworkSearchList = () => {
     const [artworks, moreArtworks, loading] = useInitiniteArtworks(searchText)
 
     useEffect(() => {
-        setSearchText("goya")
         if (!userLoggedIn) {
             setLocation("/")
         }
-    }, [setSearchText, setLocation, userLoggedIn])
+    }, [])
 
     const handleSearchTextChange = (evt) => {
         setSearch(evt.target.value)

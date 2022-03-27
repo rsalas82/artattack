@@ -13,6 +13,6 @@ export const getArtworks = (query, offset) => {
         })
         .catch(error => {
             console.log("No artwork found")
-            return []
+            return {data: []}
         })
 }
