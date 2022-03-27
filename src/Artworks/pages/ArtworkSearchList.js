@@ -16,7 +16,7 @@ const ArtworkSearchList = () => {
     const [artworks, moreArtworks, loading] = useInitiniteArtworks(searchText)
 
     useEffect(() => {
-        setSearchText("")
+        setSearchText("goya")
         if (!userLoggedIn) {
             setLocation("/")
         }

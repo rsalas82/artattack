@@ -54,3 +54,6 @@ Durante el desarrollo se han hecho uso de los siguientes patrones de diseño:
 * Mejorar el responsive.
 * Utilizar styled-components o CSS modules.
 * Persistir el estado para recuperar las obras de arte favoritas de los usuarios.
+* Persistir la sesión para evitar que el refresh de la página provoque la vuelta al login.
+* Marcar en el menú la página actual.
+* Añadir información y control sobre las obras de arte encontradas en las búsquedas.
