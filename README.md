@@ -2,7 +2,7 @@
 
 ## Información
 
-Aplicación para consultar las distintas obras de arte del The Cleveland Museum of Art. Permite filtrar por texto, consultar
+Aplicación para consultar las distintas obras de arte del The Cleveland Museum of Art a través de su API pública https://openaccess-api.clevelandart.org/. Permite filtrar por texto, consultar
 diversos detalles de las distintas obras y marcarlas como favoritas para posteriormente revisarlas.
 
 La autenticación está mockeada, no valida contra endpoint de usuarios. Para acceder, se pueden utilizar dos usuarios:
@@ -19,6 +19,8 @@ La autenticación está mockeada, no valida contra endpoint de usuarios. Para ac
 2. Ejecutar el comando *npm i* en la carpeta del proyecto.
 3. Lanzar la aplicación en modo desarrollo con el comando *npm start*
 4. Acceder en el navegador web a la URL http://localhost:3000/
+
+**NOTA:** Es recomendable para las pruebas en el entorno de desarrollo instalar el plugin Chrome **Moesif Origin & CORS Changer** y activar para evitar posibles problemas de CORS. La aplicación, al acceder por primera vez al listado de obras de artes, a veces da un error de CORS al conectar con la API. Este error no se suele dar al hacer una búsqueda por texto posterior y en las siguientes llamadas al API. Estoy buscando cómo solucionarlo, pero mientras tanto, el plugin es una buena opción para desarollo.
 
 ## Testing
 
