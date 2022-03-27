@@ -32,14 +32,14 @@ const ArtworkList = () => {
                     {return <ArtworkCard {...fav} key={fav.id} />}
                 )}
                 
-                {!showFavs && !loading && artworks.map(artwork => 
+                {!showFavs && !loading && artworks?.map(artwork => 
                     {return <ArtworkCard {...artwork} key={artwork.id} />}
                 )}
             </div>
             
             <div className="ArtworkSpinner">
                 {(loading) && <Spinner />}
-                {!favs && (artworks && artworks.length > 0 && !loading) && <button onClick={moreArtworks}>Load more artworks</button>}
+                {!showFavs && (artworks && artworks.length > 0 && !loading) && <button onClick={moreArtworks}>Load more artworks</button>}
             </div>
             
             
