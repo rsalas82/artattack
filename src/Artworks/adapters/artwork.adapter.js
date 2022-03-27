@@ -3,7 +3,6 @@ export const adaptArtworksInfo = (artworks) => {
         return {
             id: artwork.id,
             accessionNumber: artwork.accession_number,
-            tombstone: artwork.tombstone,
             currentLocation: artwork.current_location,
             title: artwork.title,
             creators: artwork.creators,
@@ -12,8 +11,9 @@ export const adaptArtworksInfo = (artworks) => {
             technique: artwork.technique,
             department: artwork.department,
             type: artwork.type,
-            url: artwork.url,
-            image: artwork.images.web.url
+            image: artwork.images.web.url,
+            culture: artwork.culture,
+            didYouKnow: artwork.fun_fact
         }
     })
 }

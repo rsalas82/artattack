@@ -6,23 +6,26 @@ import Footer from "./Footer/components/Footer";
 import Header from "./Header/components/Header";
 import Login from "./Login/components/Login";
 import SearchContext from './common/contexts/SearchContext'
+import "./App.css"
 
 function App() {
 
     const users = [
         {
-            username: "rsalas",
-            name: "Rafa",
-            surname: "Salas",
-            password: "12345",
-            avatar: "cerdito"
+          id: 1,
+          username: "rsalas",
+          name: "Rafa",
+          surname: "Salas",
+          password: "12345",
+          avatar: "cerdito"
         },
         {
-            username: "pcastro",
-            name: "Pablo",
-            surname: "Castro",
-            password: "09876",
-            avatar: "patito"
+          id: 2,
+          username: "pcastro",
+          name: "Pablo",
+          surname: "Castro",
+          password: "09876",
+          avatar: "patito"
         }
     ]
     localStorage.setItem("users", JSON.stringify(users))

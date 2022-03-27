@@ -1,46 +1,89 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import SearchContext from "../../common/contexts/SearchContext"
+import { camelize } from "../../common/utilities/camelize.utility"
+import { addToFavorites, removeFromFavorites } from "../reducer/artworks.reducer"
+import {ReactComponent as FavIcon} from "./../../common/assets/favorite_black_24dp.svg"
+import {ReactComponent as NoFavIcon} from "./../../common/assets/favorite_border_black_24dp.svg"
 
 import "./ArtworkDetails.css"
 
 const ArtworkDetails = (props) => {
     const {currentArtwork} = useContext(SearchContext)
-    console.log(currentArtwork)
+    const favs = useSelector(state => state.artworks.favs)
+    console.log(favs)
+    const dispatch = useDispatch()
+    const [isFav, setIsFav] = useState(false)
+
+    useEffect(() => {
+        setIsFav(favs.filter(fav => fav === currentArtwork.accessionNumber).length > 0)
+    }, [favs, currentArtwork.accessionNumber])
+
+    const handleAddFavClick = () => {
+        dispatch(addToFavorites(currentArtwork.accessionNumber))
+    }
+
+    const handleRemoveFavClick = () => {
+        console.log("Removed from my favorites")
+        dispatch(removeFromFavorites(currentArtwork.accessionNumber))
+    }
+    
     return (
         <div className="ArtworkDetails">
-            <h2>{currentArtwork.title}</h2>
+            <div className="ArtworkDetails__title">
+                <h2>{currentArtwork.title} <span>({currentArtwork.creationDate})</span></h2>
+                {isFav && (
+                    <FavIcon onClick={handleRemoveFavClick} />
+                )}
+                {!isFav && (
+                    <NoFavIcon onClick={handleAddFavClick} />
+                )}
+            </div>
+
             {currentArtwork.creators.length > 0 && (
-                <div className="creators">
-                    Created by {currentArtwork.creators.map(creator => creator.description).toString()}
+                <div className="ArtworkDetails__creators">
+                    {currentArtwork.creators.map(creator => creator.description).toString()}
                 </div>
             )}
-            
+
             <img src={currentArtwork.image} alt={currentArtwork.title} />
 
-            <div className="artwork_info">
-                <p>
-                    {currentArtwork.tombstone}
-                </p>
-                <div>
-                    <strong>Collection: </strong> {currentArtwork.collection}
-                </div>
-                <div>
-                    <strong>Current location: </strong> {currentArtwork.currentLocation}
-                </div>
-                <div>
-                    <strong>Creation date: </strong> {currentArtwork.creationDate}
-                </div>
-                <div>
-                    <strong>Technique: </strong> {currentArtwork.technique}
-                </div>
-                <div>
-                    <strong>Category: </strong> {currentArtwork.type}
-                </div>
-                <div>
-                    <strong>Department: </strong> {currentArtwork.department}
-                </div>
-                <div>
-                    <strong>External URL: </strong> <a href={currentArtwork.url}>{currentArtwork.url}</a>
+            <div className="ArtworkDetails__moreinfo">
+                {currentArtwork.culture && (
+                    <div className="ArtworkDetails__moreinfo__culture">
+                        <h3>CULTURE</h3>
+                        <p>{currentArtwork.culture.map((cult, index) => <p key={`cult_${index}`}>{cult}</p>)}</p>
+                    </div>
+                )}
+
+                {currentArtwork.currentLocation && (
+                    <div className="ArtworkDetails__moreinfo__location">
+                        <h3>LOCATION</h3>
+                        <p>{currentArtwork.currentLocation}</p>
+                    </div>
+                )}
+                
+                {currentArtwork.didYouKnow && (
+                    <div className="ArtworkDetails__moreinfo__didyouknow">
+                        <h3>DID YOU KNOW?</h3>
+                        <p>{currentArtwork.didYouKnow}</p>
+                    </div>
+                )}
+                
+                <div className="ArtworkDetails__moreinfo__seealso">
+                    <h3>SEE ALSO</h3>
+                    {currentArtwork.collection && (
+                        <p><strong>Collection: </strong> {currentArtwork.collection}</p>
+                    )}
+                    {currentArtwork.department && (
+                        <p><strong>Department: </strong> {currentArtwork.department}</p>
+                    )}
+                    {currentArtwork.technique && (
+                        <p><strong>Medium: </strong> {camelize(currentArtwork.technique)}</p>
+                    )}
+                    {currentArtwork.type && (
+                        <p><strong>Type of artwork: </strong> {currentArtwork.type}</p>
+                    )}
                 </div>
             </div>
             
@@ -49,15 +92,3 @@ const ArtworkDetails = (props) => {
 }
 
 export default ArtworkDetails
-
-// tombstone: artwork.tombstone,
-// currentLocation: artwork.current_location,
-// title: artwork.title,
-// creators: artwork.creators,
-// collection: artwork.collection,
-// creationDate: artwork.creation_date,
-// technique: artwork.technique,
-// department: artwork.department,
-// type: artwork.type,
-// url: artwork.url,
-// image: artwork.images.web.url

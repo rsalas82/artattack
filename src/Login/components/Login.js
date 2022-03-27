@@ -2,16 +2,21 @@ import { useEffect, useState } from "react"
 import TextField from "./../../common/components/TextField"
 import Button from "./../../common/components/Button"
 import "./Login.css"
+import { useLocation } from "wouter"
 
 const Login = () => {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
     const [users, setUsers] = useState([])
     const [showError, setShowError] = useState(false);
+    const [location, setLocation] = useLocation()
 
     useEffect(() => {
+        const userLogged = sessionStorage.getItem("userLogged")
+        if (userLogged) {
+            setLocation("/artworks")
+        }
         const users = JSON.parse(localStorage.getItem("users"))
-        console.log(users)
         setUsers(users)
     }, [])
 
@@ -21,6 +26,7 @@ const Login = () => {
         if (existUser) {
             sessionStorage.setItem("userLogged", username)
             setShowError(false)
+            setLocation("/artworks")
         } else {
             setShowError(true)
         }
@@ -37,7 +43,6 @@ const Login = () => {
 
     return (
         <>
-            
             <div className="Login">
                 {showError && <div className="error-msg">Username and/or password are not correct</div>}
                 <form onSubmit={handleSubmit}>

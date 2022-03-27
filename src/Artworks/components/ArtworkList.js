@@ -19,7 +19,7 @@ const ArtworkList = () => {
                 {artworks.map(artwork => 
                     {return <ArtworkCard {...artwork} key={artwork.id} />}
                 )}
-                {loading && <Spinner />}
+                {(loading || artworks.length <= 0) && <Spinner />}
                 {!loading && <button onClick={moreArtworks}>Load more artworks</button>}
             </div>
         </>

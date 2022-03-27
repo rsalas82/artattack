@@ -1,0 +1,8 @@
+.btnLogout {
+    background-color: tomato;
+    padding: .3rem;
+}
+
+.btnLogout:hover, .btnLogout:active {
+    text-transform: none;
+}

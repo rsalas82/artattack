@@ -2,13 +2,23 @@
   --bg-color-main: #20c5a0;
   --bg-color-second: #FFFFFF;
   --bg-color-third: #00101b;
-  --font-color-main: #000000;
+  --font-color-main: #333;
   --font-color-second: #FFFFFF;
   --bg-color-header: #20c5a0;
   --font-size-base: 16px;
   --btn-color-main: #20c5a0;
   --btn-color-hover: #FFFFFF;
   --btn-color-disabled: #c3c3c3;
+}
+
+*,
+*::before,
+*::after {    
+    box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
 }
 
 body {
@@ -19,9 +29,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: var(--font-size-base);
   color: var(--font-color-main);
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
   margin: 0;
 }
 
@@ -35,11 +42,12 @@ header {
   position: sticky;
   background-color: rgba(256, 256, 256, .9);
   padding: 0 2rem 1rem 2rem;
-  min-height: 80px;
+  height: 100px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   border-bottom: 1px solid #333;
+  flex: 1 0 auto;
 }
 
 nav {
@@ -65,18 +73,20 @@ nav > *:hover, nav > *:active {
 main {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 2rem;
+  flex: 1 0 auto;
+  min-height: calc(100vh - 150px);
 }
 
 footer {
-  position: sticky;
-  top: 100vh;
   padding: 0 2rem;
   background-color: var(--bg-color-main);
   color: var(--font-color);
-  min-height: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 footer > * {
@@ -137,4 +147,27 @@ label {
 
 .main-letter {
   color: var(--bg-color-main);
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: calc(var(--font-size-base) * 2);
+  }
+  
+  h2 {
+    font-size: calc(var(--font-size-base) * 1.5);
+  }
+  
+  h3 {
+      font-size: calc(var(--font-size-base) * 1.25);
+  }
+
+  footer {
+    font-size: calc(var(--font-size-base) * .8);
+  }
 }

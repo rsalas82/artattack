@@ -1,3 +1,9 @@
 h1 > span.main-letter {
     font-size: calc(var(--font-size-base) * 5);
 }
+
+@media (max-width: 600px) {
+    h1 > span.main-letter {
+        font-size: calc(var(--font-size-base) * 2.5);
+    }
+}
