@@ -1,8 +1,6 @@
 import React from 'react'
 
-const Context = React.createContext({
+export const SearchContext = React.createContext({
     searchText: '',
     currentArtwork: {}
 })
-
-export default Context

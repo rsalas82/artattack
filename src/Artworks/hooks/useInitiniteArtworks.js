@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { adaptArtworksInfo } from "../adapters/artwork.adapter"
-import { getArtworks } from "../services/getArtworks"
+import { getArtworks } from "../services/getArtworks.service"
 
 export const useInitiniteArtworks = (searchText) => {
-    const [artworks, setArtworks] = useState([])
+    const [artworks, setArtworks] = useState(null)
     const [loading, setLoading] = useState(true)
     const [offset, setOffset] = useState(0)
   

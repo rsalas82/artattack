@@ -11,13 +11,20 @@
     color: var(--font-color-main);
 }
 
-
 .Artwork a {
     text-decoration: none;
     color: white;
     display: flex;
     flex-direction: column;
     margin: 1rem;
+    height: 100%;
+    padding: 0 0 1rem 0;
+}
+
+.Artwork a svg {
+    width: 36px;
+    height: 36px;
+    fill: tomato;
 }
 
 .Artwork a h3 {
@@ -39,10 +46,11 @@
     display: flex;
 }
 
-.Artwork .info p {
+.Artwork .info {
     display: flex;
-    flex-direction: column;
-    flex: 3 auto;
+    align-items: center;
+    justify-content: space-between;
+    justify-self: flex-end;
 }
 
 .Artwork .info p strong {

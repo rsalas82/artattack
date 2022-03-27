@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import SearchContext from "../../common/contexts/SearchContext"
+import {SearchContext} from "../../common/contexts/SearchContext"
 import { camelize } from "../../common/utilities/camelize.utility"
 import { addToFavorites, removeFromFavorites } from "../reducer/artworks.reducer"
 import {ReactComponent as FavIcon} from "./../../common/assets/favorite_black_24dp.svg"
@@ -11,21 +11,19 @@ import "./ArtworkDetails.css"
 const ArtworkDetails = (props) => {
     const {currentArtwork} = useContext(SearchContext)
     const favs = useSelector(state => state.artworks.favs)
-    console.log(favs)
     const dispatch = useDispatch()
     const [isFav, setIsFav] = useState(false)
 
     useEffect(() => {
-        setIsFav(favs.filter(fav => fav === currentArtwork.accessionNumber).length > 0)
+        setIsFav(favs.filter(fav => fav.accessionNumber === currentArtwork.accessionNumber).length > 0)
     }, [favs, currentArtwork.accessionNumber])
 
     const handleAddFavClick = () => {
-        dispatch(addToFavorites(currentArtwork.accessionNumber))
+        dispatch(addToFavorites(currentArtwork))
     }
 
     const handleRemoveFavClick = () => {
-        console.log("Removed from my favorites")
-        dispatch(removeFromFavorites(currentArtwork.accessionNumber))
+        dispatch(removeFromFavorites(currentArtwork))
     }
     
     return (
@@ -52,7 +50,7 @@ const ArtworkDetails = (props) => {
                 {currentArtwork.culture && (
                     <div className="ArtworkDetails__moreinfo__culture">
                         <h3>CULTURE</h3>
-                        <p>{currentArtwork.culture.map((cult, index) => <p key={`cult_${index}`}>{cult}</p>)}</p>
+                        <div>{currentArtwork.culture.map((cult, index) => <p key={`cult_${index}`}>{cult}</p>)}</div>
                     </div>
                 )}
 

@@ -1,13 +1,23 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { useLocation } from "wouter"
 import Button from "../../common/components/Button"
 import TextField from "../../common/components/TextField"
+import {SearchContext} from '../../common/contexts/SearchContext'
+import {UserContext} from '../../common/contexts/UserContext'
 import ArtworkList from "../components/ArtworkList"
-import SearchContext from '../../common/contexts/SearchContext'
 import "./ArtworkSearchList.css"
 
 const ArtworkSearchList = () => {
     const {setSearchText} = useContext(SearchContext)
+    const {userLoggedIn} = useContext(UserContext)
     const [search, setSearch] = useState()
+    const [location, setLocation] = useLocation()
+
+    useEffect(() => {
+        if (!userLoggedIn) {
+            setLocation("/")
+        }
+    })
 
     const handleSearchTextChange = (evt) => {
         setSearch(evt.target.value)

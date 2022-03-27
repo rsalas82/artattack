@@ -37,3 +37,8 @@
 .Login button {
     margin: 0 auto;
 }
+
+.Login button:hover, .Login button:active {
+    background-color: #FFF;
+    color: #333;
+}

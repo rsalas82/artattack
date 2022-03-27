@@ -4,53 +4,39 @@ import ArtworkDetails from "./Artworks/pages/ArtworkDetails";
 import ArtworkSearchList from "./Artworks/pages/ArtworkSearchList";
 import Footer from "./Footer/components/Footer";
 import Header from "./Header/components/Header";
-import Login from "./Login/components/Login";
-import SearchContext from './common/contexts/SearchContext'
+import Login from "./User/pages/Login";
+import {SearchContext} from './common/contexts/SearchContext'
+import {UserContext} from './common/contexts/UserContext'
+import MyFavArtworks from "./Artworks/pages/MyFavArtworks";
 import "./App.css"
+import { ARTWORKS_URL, ARTWORK_DETAIL_URL, MYFAVS_URL } from "./common/utilities/constants.utility";
 
 function App() {
-
-    const users = [
-        {
-          id: 1,
-          username: "rsalas",
-          name: "Rafa",
-          surname: "Salas",
-          password: "12345",
-          avatar: "cerdito"
-        },
-        {
-          id: 2,
-          username: "pcastro",
-          name: "Pablo",
-          surname: "Castro",
-          password: "09876",
-          avatar: "patito"
-        }
-    ]
-    localStorage.setItem("users", JSON.stringify(users))
-
     const [searchText, setSearchText] = useState("")
+    const [userLoggedIn, setUserLoggedIn] = useState()
     const [currentArtwork, setCurrentArtwork] = useState(null)
 
   return (
-    <div className="App">
-      <header>
-        <Header />
-      </header>
-      <main>
-        <Switch>
-          <Route path="/" component={Login} />
-          <SearchContext.Provider value={{searchText, setSearchText, currentArtwork, setCurrentArtwork}}>
-            <Route path="/artworks" component={ArtworkSearchList} />
-            <Route path="/artworks/:id" component={ArtworkDetails} />
-          </SearchContext.Provider>
-        </Switch>
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </div>
+    <UserContext.Provider value={{userLoggedIn, setUserLoggedIn}}>
+      <div className="App">
+        <header>
+          <Header />
+        </header>
+        <main>
+          <Switch>
+            <Route path="/" component={Login} />
+            <SearchContext.Provider value={{searchText, setSearchText, currentArtwork, setCurrentArtwork}}>
+              <Route path={ARTWORKS_URL} component={ArtworkSearchList} />
+              <Route path={ARTWORK_DETAIL_URL} component={ArtworkDetails} />
+              <Route path={MYFAVS_URL} component={MyFavArtworks} />
+            </SearchContext.Provider>
+          </Switch>
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
+    </UserContext.Provider>
   );
 }
 

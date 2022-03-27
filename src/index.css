@@ -73,7 +73,7 @@ nav > *:hover, nav > *:active {
 main {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   padding: 2rem;
   flex: 1 0 auto;
   min-height: calc(100vh - 150px);
@@ -137,6 +137,7 @@ input[type=text],
 input[type=password] {
   padding: 0.5rem;
   border-radius: 5px;
+  font-size: calc(var(--font-size-base)*1.2);
 }
 
 label {

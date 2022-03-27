@@ -1,32 +1,29 @@
-import { useEffect, useState } from "react"
-import { useLocation } from "wouter"
-import { Link } from "wouter"
+import { useContext } from "react"
+import { useLocation, Link } from "wouter"
 import Button from "../../common/components/Button"
+import { UserContext } from "./../../common/contexts/UserContext"
 import "./Header.css"
 
 const Header = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const {userLoggedIn, setUserLoggedIn} = useContext(UserContext)
     const [location, setLocation] = useLocation()
-    
-    useEffect(() => {
-        const userId = sessionStorage.getItem("userLogged")
-        setIsLoggedIn(userId ? true : false)
-    }, [])
-
+  
     const handleLougout = () => {
         sessionStorage.removeItem("userLogged");
-        setIsLoggedIn(false)
+        setUserLoggedIn(null)
         setLocation("/")
     }
 
     return (
         <>
-            <h1><span className="main-letter">A</span>aaaaaart <span className="main-letter">A</span>ttack</h1>
+            <h1>
+                <span className="main-letter">A</span>rt <span className="main-letter">F</span>av<span className="main-letter">A</span>ttack
+            </h1>
             <nav>
-                <Link href="/"><span className="main-letter">H</span>ome</Link>
-                {isLoggedIn && (
+                {userLoggedIn && (
                     <>
                         <Link href="/artworks"><span className="main-letter">A</span>rtworks</Link>
+                        <Link href="/myfavs"><span className="main-letter">M</span>y Favs</Link>
                         <Button onClick={handleLougout} className="btnLogout">Logout</Button>
                     </>
                 )}
