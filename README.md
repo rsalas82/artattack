@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Art FavAttack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Información
 
-## Available Scripts
+Aplicación para consultar las distintas obras de arte del The Cleveland Museum of Art. Permite filtrar por texto, consultar
+diversos detalles de las distintas obras y marcarlas como favoritas para posteriormente revisarlas.
 
-In the project directory, you can run:
+La autenticación está mockeada, no valida contra endpoint de usuarios. Para acceder, se pueden utilizar dos usuarios:
+* rsalas / 12345
+* pcastro / 12345
 
-### `npm start`
+## Requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Node 16.x o superior.
+* React 17.x
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalación
 
-### `npm test`
+1. Clonar el proyecto.
+2. Ejecutar el comando *npm i* en la carpeta del proyecto.
+3. Lanzar la aplicación en modo desarrollo con el comando *npm start*
+4. Acceder en el navegador web a la URL http://localhost:3000/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Testing
 
-### `npm run build`
+Ejecutar el comando *npm test* para lanzar test en consola.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Notas sobre el desarrollo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+*Art FavAttack* es una single page application que ha sido desarrollada en React, utilizando la herramienta de empaquetado Create React App.
+Para ello, se han implementado distintos componentes funcionales, gestionando el estado de la aplicación y el ciclo de vida de cada uno mediante el uso de los hooks *useState* y *useEffect*, y el estado global de la aplicación combinando *useContext* y Redux.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+La aplicación está compuesta por 4 páginas principales:
+1. *Login:* Pantalla de login donde se solicita al usuario un par nombre/password mediante un formulario.
+2. *ArtworksSearchList:* Pantalla con el listado de obras de arte del museo, limitadas a 12 y con filtro de búsqueda por texto. Permite cargar más obras de arte, en tandas de 12.
+3. *ArtworkDetails:* Pantalla que muestra los detalles de una obra de arte.
+4. *MyFavArtworks* Pantalla que muestra las obras de arte marcadas como favoritas por el usuario.
 
-### `npm run eject`
+Los datos de navegación se almacenan en el contexto *SearchContext* y los datos de login en el contexto *UserContext* mediante el uso del hook *useContext*.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+La consulta de las obras de arte se realiza mediante la librería *axios*, a través de un *Custom Hook* que gestiona el listado de obras de arte y el estado de las llamadas al endpoint del museo.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Durante el desarrollo se han hecho uso de los siguientes patrones de diseño:
+* Module Pattern: Para extrar funcionalidades y hacerlas reutilizables (https://www.patterns.dev/posts/module-pattern/)
+* Provider Pattern: Para compartir datos entre componentes (https://www.patterns.dev/posts/provider-pattern/)
+* Hooks Pattern: Uso de hooks y custom hooks | https://www.patterns.dev/posts/hooks-pattern/
+* Container/presentational Pattern: Para reforzar la separación de la vista y la lógica de la aplicación | https://www.patterns.dev/posts/presentational-container-pattern/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Puntos a mejorar
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Diseño: hacer que sea más atractivo para el usuario.
+* Testing, tanto pruebas unitarias como pruebas de integración.
+* Mejorar el uso attributos y etiquetas de accesibilidad HTML.
+* Mejorar el responsive.
+* Utilizar styled-components o CSS modules.
+* Persistir el estado para recuperar las obras de arte favoritas de los usuarios.

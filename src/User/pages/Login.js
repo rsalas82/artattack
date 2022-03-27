@@ -45,8 +45,8 @@ const Login = () => {
             <div className="Login">
                 {showError && <div className="error-msg">{error}</div>}
                 <form onSubmit={handleSubmit}>
-                    <TextField id="username" type="text" label="Username" onChange={handleUsernameChange} />
-                    <TextField id="password" type="password" label="Password" onChange={handlePasswordChange} />
+                    <TextField id="username" type="text" label="username" role="username" onChange={handleUsernameChange} />
+                    <TextField id="password" type="password" label="pass" role="password" onChange={handlePasswordChange} />
                     <Button disabled={!username || !password}>Access</Button>
                 </form>
             </div>
