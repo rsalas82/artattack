@@ -5,9 +5,11 @@
     background-color: var(--bg-color-third);
     color: var(--font-color-second);
     border-radius: 5px;
-    max-width: 50%;
     flex: 1 1 auto;
     flex-direction: column;
+    max-width: 65%;
+    justify-self: center;
+    align-self: center;
 }
 
 .Login .error-msg {
@@ -41,4 +43,10 @@
 .Login button:hover, .Login button:active {
     background-color: #FFF;
     color: #333;
+}
+
+@media screen and (max-width: 600px) {
+    .Login {
+        max-width: 100%;
+    }
 }

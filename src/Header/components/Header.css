@@ -4,6 +4,21 @@ h1 > span.main-letter {
 
 @media (max-width: 600px) {
     h1 > span.main-letter {
-        font-size: calc(var(--font-size-base) * 2.5);
+        font-size: calc(var(--font-size-base) * 1.5);
+    }
+
+    nav {
+        font-size: calc(var(--font-size-base) * 1);
+        width: 100%;
+        gap: .5rem;
+        justify-content: space-between;
+    }
+
+    nav button {
+        font-size: calc(var(--font-size-base) * 1);
+    }
+
+    nav > *:last-child {
+        align-self: justify-end;
     }
 }

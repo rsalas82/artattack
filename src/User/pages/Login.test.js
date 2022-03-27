@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import Login from './Login';
 
 describe('User Login page', () => {
-    it.only('renders Access button', async() => {
+    it('renders Access button', async() => {
         render(<Login />);
         const accessButton = screen.getByRole('button', {
             name: /Access/i

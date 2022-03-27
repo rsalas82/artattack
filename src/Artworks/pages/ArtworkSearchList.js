@@ -5,19 +5,22 @@ import TextField from "../../common/components/TextField"
 import {SearchContext} from '../../common/contexts/SearchContext'
 import {UserContext} from '../../common/contexts/UserContext'
 import ArtworkList from "../components/ArtworkList"
+import { useInitiniteArtworks } from "../hooks/useInitiniteArtworks"
 import "./ArtworkSearchList.css"
 
 const ArtworkSearchList = () => {
-    const {setSearchText} = useContext(SearchContext)
+    const {searchText, setSearchText} = useContext(SearchContext)
     const {userLoggedIn} = useContext(UserContext)
     const [search, setSearch] = useState()
     const [location, setLocation] = useLocation()
+    const [artworks, moreArtworks, loading] = useInitiniteArtworks(searchText)
 
     useEffect(() => {
+        setSearchText("")
         if (!userLoggedIn) {
             setLocation("/")
         }
-    })
+    }, [setSearchText, setLocation, userLoggedIn])
 
     const handleSearchTextChange = (evt) => {
         setSearch(evt.target.value)
@@ -35,7 +38,7 @@ const ArtworkSearchList = () => {
                     <TextField id="searchByText" type="text" label="Search" onChange={handleSearchTextChange} className="searchForm_fields" />
                     <Button type="submit">Search</Button>
                 </form>
-                <ArtworkList />
+                <ArtworkList artworks={artworks} moreArtworks={moreArtworks} loading={loading} />
             </div>
     )
 }

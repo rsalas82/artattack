@@ -8,7 +8,7 @@ export const userMockAuthenticate = ({username, password}) => {
                 reject({code: 404, message: "Username was not found"});
             }
 
-            if(existsUser.password !== password) {
+            if(existsUser && existsUser.password !== password) {
                 reject({code: 404, message: "Password incorrect"});
             }
 

@@ -31,5 +31,19 @@
 
 .ArtworkSearch .searchForm .searchForm_fields {
     display: flex;
-    flex: 3 auto;
+    width: 100%;
 }
+
+.ArtworkSearch .searchForm button {
+    flex-shrink: 1;
+}
+
+ @media screen and (max-width: 600px) {
+    .ArtworkSearch {
+        margin: 0 0 1rem;
+    }
+
+    .ArtworkSearch .searchForm {
+        flex-wrap: wrap;
+    }
+ }

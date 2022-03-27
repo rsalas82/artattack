@@ -1,5 +1,5 @@
 export const adaptArtworksInfo = (artworks) => {
-    return artworks.map(artwork => {
+    return artworks?.map(artwork => {
         return {
             id: artwork.id,
             accessionNumber: artwork.accession_number,
