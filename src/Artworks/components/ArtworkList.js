@@ -28,7 +28,7 @@ const ArtworkList = () => {
     return (
         <>  
             <div className="ArtworkList">
-                {showFavs && !loading && favs.map(fav => 
+                {showFavs && !loading && favs?.map(fav => 
                     {return <ArtworkCard {...fav} key={fav.id} />}
                 )}
                 
