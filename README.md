@@ -15,16 +15,17 @@ La autenticación está mockeada, no valida contra endpoint de usuarios. Para ac
 
 ## Instalación
 
-1. Clonar el proyecto.
-2. Ejecutar el comando *npm i* en la carpeta del proyecto.
-3. Lanzar la aplicación en modo desarrollo con el comando *npm start*
-4. Acceder en el navegador web a la URL http://localhost:3000/
+1. Clona el proyecto.
+2. Ejecuta el comando *npm i* en la carpeta del proyecto.
+3. Lanza la aplicación en modo desarrollo con el comando *npm start*
+4. Accede en el navegador web a la URL http://localhost:3000/
 
 **NOTA:** Es recomendable para las pruebas en el entorno de desarrollo instalar el plugin Chrome **Moesif Origin & CORS Changer** y activar para evitar posibles problemas de CORS. La aplicación, al acceder por primera vez al listado de obras de artes, a veces da un error de CORS al conectar con la API. Este error no se suele dar al hacer una búsqueda por texto posterior y en las siguientes llamadas al API. Estoy buscando cómo solucionarlo, pero mientras tanto, el plugin es una buena opción para desarollo.
 
 ## Testing
 
-Ejecutar el comando *npm test* para lanzar test en consola.
+He utilizado Jest + Testing Library, que facilita las pruebas de simulación de navegación de usuarios.
+Para lanzar los tests, Ejecuta el comando *npm test* para lanzar test en consola.
 
 ## Notas sobre el desarrollo
 
@@ -49,12 +50,19 @@ Durante el desarrollo se han hecho uso de los siguientes patrones de diseño:
 
 ## Puntos a mejorar
 
-* Diseño: hacer que sea más atractivo para el usuario.
-* Testing, tanto pruebas unitarias como pruebas de integración.
+### Mejoras técnicas
+
+* Refactorizar y extraer componentes comunes.
+* Cambiar las importaciones clásicas de CSS a CSS Modules o Styled Components.
 * Mejorar el uso attributos y etiquetas de accesibilidad HTML.
 * Mejorar el responsive.
-* Utilizar styled-components o CSS modules.
+* Diseño: hacer que sea más atractivo para el usuario.
+* Testing, tanto pruebas unitarias como pruebas de integración.
+
+### Mejoras funcionales
+
+* Corregir el bug con CORS en la primera búsqueda tras la instalación en local.
 * Persistir el estado para recuperar las obras de arte favoritas de los usuarios.
 * Persistir la sesión para evitar que el refresh de la página provoque la vuelta al login.
-* Marcar en el menú la página actual.
+* Marcar en el menú de navegación la página actual.
 * Añadir información y control sobre las obras de arte encontradas en las búsquedas.
