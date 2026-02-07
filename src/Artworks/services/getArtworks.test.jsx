@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
@@ -6,7 +7,7 @@ import ArtworkList from "../components/ArtworkList";
 import { artworksReducer } from "../reducer/artworks.reducer";
 
 describe("ArtworkList component", () => {
-    beforeAll(() => jest.spyOn(window, "fetch"));
+    beforeAll(() => vi.spyOn(window, "fetch"));
   
     describe("when user access to the artwork list page", () => {
       it("should list artwoks", async () => {
