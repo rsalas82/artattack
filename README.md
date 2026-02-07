@@ -10,8 +10,8 @@ La autenticación está mockeada, no valida contra endpoint de usuarios. Para ac
 
 ## Requisitos
 
-* Node 16.x o superior.
-* React 17.x
+* Node 18.x o superior.
+* React 18.x
 
 ## Instalación
 
@@ -24,12 +24,12 @@ La autenticación está mockeada, no valida contra endpoint de usuarios. Para ac
 
 ## Testing
 
-He utilizado Jest + Testing Library, que facilita las pruebas de simulación de navegación de usuarios.
-Para lanzar los tests, Ejecuta el comando *npm test* para lanzar test en consola.
+He utilizado Vitest + Testing Library, que facilita las pruebas de simulación de navegación de usuarios.
+Para lanzar los tests, ejecuta el comando *npm test* para lanzar los tests en consola.
 
 ## Notas sobre el desarrollo
 
-**Art FavAttack** es una single page application que ha sido desarrollada en React, utilizando la herramienta de empaquetado Create React App.
+**Art FavAttack** es una single page application que ha sido desarrollada en React, utilizando la herramienta de empaquetado Vite.
 Para ello, se han implementado distintos componentes funcionales, gestionando el estado de la aplicación y el ciclo de vida de cada uno mediante el uso de los hooks **useState** y **useEffect**, y el estado global de la aplicación combinando **useContext** y Redux.
 
 La aplicación está compuesta por 4 páginas principales:

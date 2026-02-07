@@ -4,7 +4,7 @@ import { camelize } from "../../common/utilities/camelize.utility"
 import {SearchContext} from "../../common/contexts/SearchContext"
 import { isArtworkFaved } from "../utilities/isArtworkFaved.utility"
 import { useSelector } from "react-redux"
-import {ReactComponent as FavIcon} from "./../../common/assets/favorite_black_24dp.svg"
+import FavIcon from "./../../common/assets/favorite_black_24dp.svg?react"
 import "./ArtworkCard.css"
 
 const ArtworkCard = (props) => {

@@ -1,6 +1,6 @@
-import {ReactComponent as GithubIcon} from "./../../common/assets/github.svg"
-import {ReactComponent as LinkedInIcon} from "./../../common/assets/linkedIn.svg"
-import {ReactComponent as CopyrightIcon} from "./../../common/assets/copyright.svg"
+import GithubIcon from "./../../common/assets/github.svg?react"
+import LinkedInIcon from "./../../common/assets/linkedIn.svg?react"
+import CopyrightIcon from "./../../common/assets/copyright.svg?react"
 import './Footer.css'
 
 const Footer = () => {

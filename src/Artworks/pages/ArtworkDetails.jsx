@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux"
 import {SearchContext} from "../../common/contexts/SearchContext"
 import { camelize } from "../../common/utilities/camelize.utility"
 import { addToFavorites, removeFromFavorites } from "../reducer/artworks.reducer"
-import {ReactComponent as FavIcon} from "./../../common/assets/favorite_black_24dp.svg"
-import {ReactComponent as NoFavIcon} from "./../../common/assets/favorite_border_black_24dp.svg"
+import FavIcon from "./../../common/assets/favorite_black_24dp.svg?react"
+import NoFavIcon from "./../../common/assets/favorite_border_black_24dp.svg?react"
 
 import "./ArtworkDetails.css"
 
